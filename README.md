@@ -42,3 +42,20 @@ $($('.guiDiv')[0]).hover(function(){
 4. 注意div的大小比例要和图片的大小比例差不多，不然图片会被拉伸变形
 # 效果展示
 https://1356151398.github.io/Kimetsu-no-Yaiba-Animation/html/test.html
+# 参数详细说明
+~~~
+{
+    target: '', //必须要填的目标
+    inPath: '', //必填 里图的路径
+    outPath: '', //必填 外图的路径
+    width: '', //宽度 默认100%
+    height: '', //高度 默认100%
+    model: '', //默认horizontal  可选vertical  决定动画样式
+    words: '', //右下角小字，不填即没有
+    distance: '', //主动画结束后 图片移动距离 默认5%
+    direction: '', //主动画结束后 图片移动方向(up, left, right, down) ,horizontal对应left,right ;vertical对应up,down ;不然会露底
+    moveDuration: '', //主动画结束后 图片移动时间 默认5000ms
+    startPrecent: '', //展示部分的开始百分比  默认为从左往右(从上往下)的10%
+    endPrecent: '', //展示部分的结束百分比  默认为从左往右(从上往下)的30%
+}
+~~~
