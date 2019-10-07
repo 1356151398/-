@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>测试</title>
+    <link rel="stylesheet" type="text/css" href="../css/guiMie.css" />
+    <style>
+        html,
+        body {
+            margin: 0px;
+            padding: 0px;
+            width: 100%;
+            height: 100%;
+            background-image: url(../images/bg_01.jpg);
+        }
+
+        .flex-container {
+            width: 100%;
+            height: 100%;
+        }
+
+        .guiDiv{
+            float: left;
+            margin: 30px
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="flex-container" >
+        <div class="guiDiv">
+        </div>
+        <div class="guiDiv">
+        </div>
+        <div class="guiDiv">
+        </div>
+        <div class="guiDiv">
+        </div>
+        <div class="guiDiv">
+        </div>
+        <div class="guiDiv">
+        </div>
+    </div>
+
+
+    <script type="text/javascript" src="../js/jquery.1.12.4.min.js"></script>
+    <script src="../js/anime.min.js"></script>
+    <script src="../js/guiMie.js"></script>
+    <script>
+        $(function () {
+
+            var anSet1 = {
+                target: $('.guiDiv')[0], //必要的目标
+                model: '', //horizontal(default) or vertical
+                words: '炭治郎', //anything
+                inPath: '../images/joke2.png',//必要 里图
+                outPath: '../images/joke1.png',//必要 外图
+                distance: '',
+                direction: '', // up down left right 横就左右 竖就上下 不然露底
+                width: '480px',
+                height: '270px',
+                startPrecent: '', //开始百分比 默认10%
+                endPrecent: '', //结束百分比 默认30%
+            }
+
+            var anSet2 = {
+                target: $('.guiDiv')[1], //必要的目标
+                model: '', //horizontal(default) or vertical
+                words: '炎柱', //anything
+                inPath: '../images/huo2.png',
+                outPath: '../images/huo1.png',
+                distance: '',
+                direction: '', // up down left right 横就左右 竖就上下 不然露底
+                width: '480px',
+                height: '270px',
+                startPrecent: '', //开始百分比 默认10%
+                endPrecent: '', //结束百分比 默认30%
+            }
+
+            var anSet3 = {
+                target: $('.guiDiv')[2], //必要的目标
+                model: '', //horizontal(default) or vertical
+                words: '空条承太郎', //anything
+                inPath: '../images/星辰斗士2.png',
+                outPath: '../images/星辰斗士1.png',
+                distance: '',
+                direction: '', // up down left right 横就左右 竖就上下 不然露底
+                width: '480px',
+                height: '270px',
+                startPrecent: '', //开始百分比 默认10%
+                endPrecent: '', //结束百分比 默认30%
+            }
+
+            var anSet4 = {
+                target: $('.guiDiv')[3], //必要的目标
+                model: 'vertical', //horizontal(default) or vertical
+                words: '儒雅随和', //anything
+                inPath: '../images/儒雅随和2.png',//必要 里图
+                outPath: '../images/儒雅随和1.png',//必要 外图
+                distance: '5%',
+                direction: '', // up down left right 横就左右 竖就上下 不然露底
+                width: '480px',
+                height: '270px',
+                startPrecent: '', //开始百分比 默认10%
+                endPrecent: '', //结束百分比 默认30%
+            }
+
+            var anSet5 = {
+                target: $('.guiDiv')[4], //必要的目标
+                model: 'vertical', //horizontal(default) or vertical
+                words: '炎柱', //anything
+                inPath: '../images/huo2.png',
+                outPath: '../images/huo1.png',
+                distance: '10%',
+                direction: '', // up down left right 横就左右 竖就上下 不然露底
+                width: '480px',
+                height: '270px',
+                startPrecent: '10%', //开始百分比 默认10%
+                endPrecent: '40%', //结束百分比 默认30%
+            }
+
+            var anSet6 = {
+                target: $('.guiDiv')[5], //必要的目标
+                model: '', //horizontal(default) or vertical
+                words: '超级迈凯伦', //anything
+                inPath: '../images/che2.png',
+                outPath: '../images/che1.png',
+                distance: '10%',
+                direction: '', // up down left right 横就左右 竖就上下 不然露底
+                width: '480px',
+                height: '270px',
+                startPrecent: '', //开始百分比 默认10%
+                endPrecent: '', //结束百分比 默认30%
+            }
+
+            let an1 = initGuiMieAnime(anSet1)
+            let an2 = initGuiMieAnime(anSet2)
+            let an3 = initGuiMieAnime(anSet3)
+            let an4 = initGuiMieAnime(anSet4)
+            let an5 = initGuiMieAnime(anSet5)
+            let an6 = initGuiMieAnime(anSet6)
+
+            let ans = [an1,an2,an3,an4,an5,an6]
+
+            let items = $('.guiDiv')
+            for(let i=0;i<items.length;++i){
+                $(items[i]).hover(function(){
+                    ans[i].play()//播放动画
+                }, function(){
+                    resetGuiMieAnime(ans[i])//重置动画
+                })
+            }            
+        })
+    </script>
+</body>
+
+</html>

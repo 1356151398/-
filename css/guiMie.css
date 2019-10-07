@@ -1,0 +1,86 @@
+.guiDiv {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.back{
+    z-index: -100;
+    position: fixed;
+    top:0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+}
+
+.zhe0{
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    right: 0px;
+    z-index: 2;
+}
+
+.zhe1 {
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    z-index: 3;
+}
+
+.zhe0,
+.zhe1 {
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+}
+
+.zhe2 {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    position: absolute;
+    right: -130%;
+    z-index: 4;
+}
+
+.zhe3 {
+    width: 0%;
+    height: 100%;
+    background-color: black;
+    position: absolute;
+    z-index: 4;
+}
+
+.zhe4{
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    position: absolute;
+    z-index: 1;
+}
+
+.zhe5{
+    position: absolute;
+    z-index: 6;
+    opacity: 0;
+    color: white;
+    font-size: 200%;
+}
+
+.gui-flex-container {
+    display: -webkit-flex;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.gui-flex-item {
+    align-self: center;
+    background-color: transparent
+}

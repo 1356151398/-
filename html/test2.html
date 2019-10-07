@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>测试</title>
+    <link rel="stylesheet" type="text/css" href="../css/guiMie.css" />
+    <style>
+        html,
+        body {
+            margin: 0px;
+            padding: 0px;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="guiDiv back"> <!--当背景需要加上back-->
+    </div>
+
+    <div style="width: 50%;height:1000px;background:rgba(76, 192, 221, 0.6);margin: 5% 10%;border-radius: 30px;float: right;text-align: center;color: white">
+        <h1>需知</h1>
+    </div>
+
+    <script type="text/javascript" src="../js/jquery.1.12.4.min.js"></script>
+    <script src="../js/anime.min.js"></script>
+    <script src="../js/guiMie.js"></script>
+    <script>
+        $(function () {
+
+            var anSet = {
+                target: $('.guiDiv')[0], //必要的目标
+                model: '', //horizontal(default) or vertical
+                words: '', //anything
+                inPath: '../images/joke2.png',//必要 里图
+                outPath: '../images/joke1.png',//必要 外图
+                distance: '',
+                direction: '', // up down left right 横就左右 竖就上下 不然露底
+                moveDuration: '',//图片移动持续时间
+                width: '',
+                height: '',
+                startPrecent: '', //开始百分比 默认10%
+                endPrecent: '', //结束百分比 默认30%
+            }
+
+            var an = initGuiMieAnime(anSet)
+            an.play()//播放动画
+        })
+    </script>
+</body>
+
+</html>
