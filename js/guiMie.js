@@ -28,17 +28,16 @@ function initGuiMieAnime(set) {
     inPath ? inPath = "background-image: url(" + inPath + ")" : inPath = ''
     outPath ? outPath = "background-image: url(" + outPath + ")" : outPath = ''
     words ? '' : words = ''
+    $(guiDiv).css({
+        width: width,
+        height: height
+    })
     $(guiDiv).append("<div class='zhe0' style='" + inPath + "'></div>")
     $(guiDiv).append("<div class='zhe1' style='" + outPath + "'></div>")
     $(guiDiv).append("<div class='zhe2'></div>")
     $(guiDiv).append("<div class='zhe3'></div>")
-    $(guiDiv).append("<div class='zhe4'></div>")
-    $(guiDiv).append("<div class='zhe5'>" + words + "</div>")
 
-    anime.set(guiDiv, {
-        width: width,
-        height: height
-    })
+    $(guiDiv).append("<div class='zhe5'>" + words + "</div>")
     return getGuiMieAnime(guiDiv, set)
 }
 
@@ -51,7 +50,8 @@ $(window).resize(function () {
         let width = $(items[i]).width() + 'px'
         let height = $(items[i]).height() + 'px'
         let size = width + ' ' + height
-        anime.set([zhe0, zhe1], {
+        if(!zhe0 || !zhe1) continue
+        $([zhe0, zhe1]).css({
             backgroundSize: size,
             backgroundRepeat: 'no-repea'
         })
@@ -64,7 +64,7 @@ function getGuiMieAnime(guiDiv, set) {
     var zhe1 = $(guiDiv).children('.zhe1')[0];
     var zhe2 = $(guiDiv).children('.zhe2')[0];
     var zhe3 = $(guiDiv).children('.zhe3')[0];
-    var zhe4 = $(guiDiv).children('.zhe4')[0];
+
     var zhe5 = $(guiDiv).children('.zhe5')[0];
     let width = $(guiDiv).width() + 'px'
     let height = $(guiDiv).height() + 'px'
@@ -74,48 +74,45 @@ function getGuiMieAnime(guiDiv, set) {
         backgroundRepeat: 'no-repea'
     })
     if (set.model == 'horizontal') {
-        guiMieInit(zhe1, zhe2, zhe3, zhe4, zhe5);
-        return guiMie(zhe1, zhe2, zhe3, zhe4, zhe5, set)
+        guiMieInit(zhe1, zhe2, zhe3, zhe5);
+        return guiMie(zhe1, zhe2, zhe3, zhe5, set)
     } else if (set.model == 'vertical') {
-        guiMieInit2(zhe1, zhe2, zhe3, zhe4, zhe5);
-        return guiMie2(zhe1, zhe2, zhe3, zhe4, zhe5, set)
+        guiMieInit2(zhe1, zhe2, zhe3, zhe5);
+        return guiMie2(zhe1, zhe2, zhe3, zhe5, set)
     }
 }
 
+//重置动画
 function resetGuiMieAnime(anime) {
 
     anime.pause()
     anime.seek(0)
 }
 
-function guiMieInit(zhe1, zhe2, zhe3, zhe4, zhe5) {
-    anime.remove([zhe1, zhe2, zhe3, zhe4])
+function guiMieInit(zhe1, zhe2, zhe3, zhe5) {
+    anime.remove([zhe1, zhe2, zhe3,  zhe5])
 
-    anime.set(zhe1, {
+    $(zhe1).css({
         width: '100%',
         translateX: '0px'
     })
 
-    anime.set(zhe2, {
+    $(zhe2).css({
         right: '-130%',
     })
 
-    anime.set(zhe3, {
+    $(zhe3).css({
         width: '0%',
     })
 
-    anime.set(zhe4, {
-        width: '100%',
-    })
-
-    anime.set(zhe5, {
+    $(zhe5).css({
         opacity: '0',
         right: '10%',
         bottom: '10%',
     })
 }
 
-function guiMie(zhe1, zhe2, zhe3, zhe4, zhe5, set) {
+function guiMie(zhe1, zhe2, zhe3, zhe5, set) {
     let distance = set.distance
     let direction = set.direction
     let startPrecent = set.startPrecent
@@ -199,13 +196,6 @@ function guiMie(zhe1, zhe2, zhe3, zhe4, zhe5, set) {
     }, 400)
 
     tl.add({
-        targets: zhe4,
-        width: ['100%', '40%'],
-        duration: 300,
-
-    }, 0)
-
-    tl.add({
         targets: zhe5,
         opacity: [0, 1],
         duration: 500
@@ -223,36 +213,32 @@ function guiMie(zhe1, zhe2, zhe3, zhe4, zhe5, set) {
     return tl
 }
 
-function guiMieInit2(zhe1, zhe2, zhe3, zhe4, zhe5) {
-    anime.remove([zhe1, zhe2, zhe3, zhe4])
+function guiMieInit2(zhe1, zhe2, zhe3, zhe5) {
+    anime.remove([zhe1, zhe2, zhe3, zhe5])
 
-    anime.set(zhe1, {
+    $(zhe1).css({
         height: '100%',
         translateY: '0px'
     })
 
-    anime.set(zhe2, {
+    $(zhe2).css({
         right: '0%',
         bottom: '-130%',
     })
 
-    anime.set(zhe3, {
+    $(zhe3).css({
         width: '100%',
         height: '0%',
     })
 
-    anime.set(zhe4, {
-        height: '100%',
-    })
-
-    anime.set(zhe5, {
+    $(zhe5).css({
         opacity: '0',
         right: '10%',
         bottom: '10%',
     })
 }
 
-function guiMie2(zhe1, zhe2, zhe3, zhe4, zhe5 ,set) {
+function guiMie2(zhe1, zhe2, zhe3, zhe5 ,set) {
     let distance = set.distance
     let direction = set.direction
     let startPrecent = set.startPrecent
@@ -334,13 +320,6 @@ function guiMie2(zhe1, zhe2, zhe3, zhe4, zhe5 ,set) {
         height: startPrecent,
         duration: 150
     }, 400)
-
-    tl.add({
-        targets: zhe4,
-        height: ['100%', '40%'],
-        duration: 300,
-
-    }, 0)
 
     tl.add({
         targets: zhe5,
