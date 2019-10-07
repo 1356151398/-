@@ -34,5 +34,11 @@ $($('.guiDiv')[0]).hover(function(){
                     resetGuiMieAnime(an1)//重置动画
                 })
 ~~~
+## 图片要求
+如果想要实现鬼灭之刃中场动画效果的话。。。
+1. 准备一张图
+2. 用ps打开,并将想要突出的部分移动到10%~30%(默认,具体根据个人设置)的位置,多余部分涂黑或者直接剪掉
+3. 导出一张彩色的外图和一张反相的里图,分别对应outPat和inPath
+4. 注意div的大小比例要和图片的大小比例差不多，不然图片会被拉伸变形
 # 效果展示
 https://1356151398.github.io/Kimetsu-no-Yaiba-Animation/html/test.html
