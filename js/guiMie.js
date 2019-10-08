@@ -10,8 +10,8 @@ set{
     distance: '', //主动画结束后 图片移动距离 默认5%
     direction: '', //主动画结束后 图片移动方向(up, left, right, down) ,horizontal对应left,right ;vertical对应up,down ;不然会露底
     moveDuration: '', //主动画结束后 图片移动时间 默认5000ms
-    startPrecent: '', //展示部分的开始百分比  默认为从左往右(从上往下)的10%
-    endPrecent: '', //展示部分的结束百分比  默认为从左往右(从上往下)的30%
+    startPercent: '', //展示部分的开始百分比  默认为从左往右(从上往下)的10%
+    endPercent: '', //展示部分的结束百分比  默认为从左往右(从上往下)的30%
 }
 */
 
@@ -115,12 +115,12 @@ function guiMieInit(zhe1, zhe2, zhe3, zhe5) {
 function guiMie(zhe1, zhe2, zhe3, zhe5, set) {
     let distance = set.distance
     let direction = set.direction
-    let startPrecent = set.startPrecent
-    let endPrecent = set.endPrecent
+    let startPercent = set.startPercent
+    let endPercent = set.endPercent
     let moveDuration = set.moveDuration
     moveDuration ? '' : moveDuration = '5000'
-    startPrecent ? '' : startPrecent = '10%'
-    endPrecent ? '': endPrecent = '30%'
+    startPercent ? '' : startPercent = '10%'
+    endPercent ? '': endPercent = '30%'
     distance ? '' : distance = '5%'
 
     let x = '0'
@@ -185,13 +185,13 @@ function guiMie(zhe1, zhe2, zhe3, zhe5, set) {
     }, 300)
     tl.add({
         targets: zhe2,
-        right: '-' + endPrecent,
+        right: '-' + endPercent,
         duration: 100
     }, 400)
 
     tl.add({
         targets: zhe3,
-        width: startPrecent,
+        width: startPercent,
         duration: 150
     }, 400)
 
@@ -241,12 +241,12 @@ function guiMieInit2(zhe1, zhe2, zhe3, zhe5) {
 function guiMie2(zhe1, zhe2, zhe3, zhe5 ,set) {
     let distance = set.distance
     let direction = set.direction
-    let startPrecent = set.startPrecent
-    let endPrecent = set.endPrecent
+    let startPercent = set.startPercent
+    let endPercent = set.endPercent
     let moveDuration = set.moveDuration
     moveDuration ? '' : moveDuration = '5000'
-    startPrecent ? '' : startPrecent = '10%'
-    endPrecent ? '': endPrecent = '30%'
+    startPercent ? '' : startPercent = '10%'
+    endPercent ? '': endPercent = '30%'
     distance ? '' : distance = '5%'
 
     let x = '0'
@@ -311,13 +311,13 @@ function guiMie2(zhe1, zhe2, zhe3, zhe5 ,set) {
     }, 300)
     tl.add({
         targets: zhe2,
-        bottom: '-' + endPrecent,
+        bottom: '-' + endPercent,
         duration: 100
     }, 400)
 
     tl.add({
         targets: zhe3,
-        height: startPrecent,
+        height: startPercent,
         duration: 150
     }, 400)
 
